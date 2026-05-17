@@ -1,0 +1,45 @@
+import { expect, Locator, Page }from '@playwright/test';
+import { BasePage }from './BasePage';
+
+export class ProductsPage extends BasePage {
+  readonly shoppingCartBadge: Locator;
+
+  constructor(page: Page) {
+    super(page);
+    this.shoppingCartBadge = page.locator('.shopping_cart_badge');
+  }
+
+  getProductCard(productName: string) {
+    return this.page
+      .locator('.inventory_item')
+      .filter({hasText: productName});
+  }
+
+  async addProductToCart(productName: string) {
+    const productCard = this.getProductCard(productName);
+    await productCard.getByRole('button', {name: 'Add to cart'}).click();
+  }
+
+ async addMultipleProducts(products: string[]) {
+    for (const product of products) {
+      await this.addProductToCart(product);
+    }
+  }
+
+  async verifyCartQuantity(quantity: string) {
+    await expect(this.shoppingCartBadge).toHaveText(quantity);
+  }
+
+  async verifyProductDetails(productName: string, expectedDescription: string,expectedPrice: string) {
+    const productCard = this.getProductCard(productName);
+    const productTitle = productCard.locator('.inventory_item_name');
+    const productDescription =productCard.locator('.inventory_item_desc');
+    const productPrice = productCard.locator('.inventory_item_price');
+    
+    await expect(productTitle).toHaveText(productName);
+    await expect(productDescription).toHaveText(expectedDescription);
+    await expect(productPrice).toHaveText(expectedPrice);
+
+  }
+
+}

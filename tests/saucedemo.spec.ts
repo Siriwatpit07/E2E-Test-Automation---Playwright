@@ -3,9 +3,9 @@ import { USERS, PRODUCTS, CART} from '../test-data/testda';
 import { LoginPage } from '../pages/LoginPage';
 import { ProductsPage } from '../pages/ProductsPage';
 
-test.describe('Login Feature', () => {
+test.describe('E2E Order Successfully', () => {
 
-  test('Login Success', async ({ page }) => {
+  test('E2E Order', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const productsPage = new ProductsPage(page);
 
@@ -33,5 +33,6 @@ test.describe('Login Feature', () => {
       );
 
   });
+  
 
 });

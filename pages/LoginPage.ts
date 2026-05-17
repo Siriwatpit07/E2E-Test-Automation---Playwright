@@ -1,5 +1,6 @@
 import { Page, Locator, expect } from '@playwright/test';
 import { BasePage } from './BasePage';  
+import { URL } from '../test-data/testda'
 
 export class LoginPage extends BasePage {
   readonly usernameInput: Locator;
@@ -16,7 +17,7 @@ export class LoginPage extends BasePage {
   }
 
   async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
+    await this.page.goto(URL);
   }
 
   async login(username: string, password: string) {

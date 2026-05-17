@@ -1,3 +1,4 @@
+export const URL =  'https://www.saucedemo.com/';
 export const USERS = {
 
   standardUser: {

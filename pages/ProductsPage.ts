@@ -1,4 +1,4 @@
-import { expect, Locator, Page }from '@playwright/test';
+import { Page, expect, Locator }from '@playwright/test';
 import { BasePage }from './BasePage';
 
 export class ProductsPage extends BasePage {
@@ -28,18 +28,8 @@ export class ProductsPage extends BasePage {
 
   async verifyCartQuantity(quantity: string) {
     await expect(this.shoppingCartBadge).toHaveText(quantity);
-  }
-
-  async verifyProductDetails(productName: string, expectedDescription: string,expectedPrice: string) {
-    const productCard = this.getProductCard(productName);
-    const productTitle = productCard.locator('.inventory_item_name');
-    const productDescription =productCard.locator('.inventory_item_desc');
-    const productPrice = productCard.locator('.inventory_item_price');
-    
-    await expect(productTitle).toHaveText(productName);
-    await expect(productDescription).toHaveText(expectedDescription);
-    await expect(productPrice).toHaveText(expectedPrice);
-
+    await this.shoppingCartBadge.click();
   }
 
 }
+

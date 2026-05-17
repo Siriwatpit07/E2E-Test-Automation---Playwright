@@ -32,3 +32,10 @@ export const PRODUCTS = {
 export const CART = {
   quantity: "2",
 };
+
+export const Information = {
+  first: "Siriwat",
+  last: "Piladaeng",
+  zip:  "12000",
+};
+

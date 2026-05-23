@@ -38,9 +38,3 @@ export const Information = {
   last: "Piladaeng",
   zip:  "12000",
 };
-
-export const Test = {
-  first: "test",
-  last: "test",
-  zip:  "test",
-};

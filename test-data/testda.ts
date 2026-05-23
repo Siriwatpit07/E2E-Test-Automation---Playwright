@@ -39,3 +39,8 @@ export const Information = {
   zip:  "12000",
 };
 
+export const Test = {
+  first: "test",
+  last: "test",
+  zip:  "test",
+};

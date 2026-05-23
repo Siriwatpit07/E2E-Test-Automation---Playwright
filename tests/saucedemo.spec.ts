@@ -8,7 +8,7 @@ import { OverviewPage } from '../pages/OverciewPage';
 import { LogoutPage } from '../pages/LogoutPage';
 
 test.describe('E2E Order Successfully', () => {
-//Login
+
   test('E2E Order', async ({ page }) => {
     const loginPage = new LoginPage(page)
     const productsPage = new ProductsPage(page);
